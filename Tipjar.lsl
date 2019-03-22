@@ -1,8 +1,8 @@
 // Channel to communicate on. Must be set to the same number on every tipjar. Use a random negative integer
-integer listenChannel = -832749;
+integer listenChannel = -7843293;
 
 // Hovertext message - %%TOTALDONATED%% will be replaced with the total donated so far
-string hoverMessage = "Donation Box\nAny donations are appreciated!\n$%%TOTALDONATED%% Donated so far.";
+string hoverMessage = "Donation Box\nAny donations are appreciated!\nL$%%TOTALDONATED%% Donated so far.";
 
 // Color of the hovertext
 vector hoverColor = <1.0, 1.0, 1.0>;
@@ -46,7 +46,7 @@ default {
         totalDonated += amount;
         llSetText(strReplace(hoverMessage, "%%TOTALDONATED%%", (string)totalDonated), hoverColor, 1.0);
         llRegionSayTo(id, 0, thankYouMessage);
-        llOwnerSay(llKey2Name(id)+" donated $" + (string)amount);
+        llOwnerSay(llKey2Name(id)+" donated L$" + (string)amount);
         llRegionSay(listenChannel, "DONATE|" + (string)amount);
     }
             
