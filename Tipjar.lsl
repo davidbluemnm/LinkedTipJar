@@ -2,10 +2,10 @@
 integer listenChannel = -832749;
 
 // Hovertext message - %%TOTALDONATED%% will be replaced with the total donated so far
-string hoverMessge = "Devils Donation Box\nAny donations are appreciated!\n$%%TOTALDONATED%% Donated so far.";
+string hoverMessage = "Devils Donation Box\nAny donations are appreciated!\n$%%TOTALDONATED%% Donated so far.";
 
 // Color of the hovertext
-vector hoverColor = <1.0, 1.0, 1.0>
+vector hoverColor = <1.0, 1.0, 1.0>;
 
 // Thank you message sent to tipper
 string thankYouMessage = "Thank you, your donation is appreciated!";
@@ -34,7 +34,7 @@ default {
 
     state_entry() {
         owner = llGetOwner();
-        llSetText(strReplace(hoverMessage, "%%TOTALDONATED%%", "0", hoverColor, 1.0);
+        llSetText(strReplace(hoverMessage, "%%TOTALDONATED%%", "0"), hoverColor, 1.0);
         llSetPayPrice(payField, prices);
         listenHandle = llListen(listenChannel, "", "", "");
         llSetClickAction(CLICK_ACTION_PAY);
@@ -44,7 +44,7 @@ default {
 
     money(key id, integer amount) {
         totalDonated += amount;
-		llSetText(strReplace(hoverMessage, "%%TOTALDONATED%%", (string)totalDonated, hoverColor, 1.0);
+        llSetText(strReplace(hoverMessage, "%%TOTALDONATED%%", (string)totalDonated), hoverColor, 1.0);
         llRegionSayTo(id, 0, thankYouMessage);
         llOwnerSay(llKey2Name(id)+" donated $" + (string)amount);
         llRegionSay(listenChannel, "DONATE|" + (string)amount);
@@ -56,11 +56,11 @@ default {
             if (llGetListLength(data) == 2) {
                 if(llList2String(data, 0) == "DONATE") {
                     totalDonated += (integer)llList2String(data, 1);
-                    llSetText(strReplace(hoverMessage, "%%TOTALDONATED%%", (string)totalDonated, hoverColor, 1.0);
+                    llSetText(strReplace(hoverMessage, "%%TOTALDONATED%%", (string)totalDonated), hoverColor, 1.0);
                 }
             } else if (message == "ZZZRESET") {
                 totalDonated = 0;
-                llSetText(strReplace(hoverMessage, "%%TOTALDONATED%%", "0", hoverColor, 1.0);
+                llSetText(strReplace(hoverMessage, "%%TOTALDONATED%%", "0"), hoverColor, 1.0);
             }
         }
     }
