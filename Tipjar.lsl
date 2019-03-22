@@ -1,8 +1,8 @@
-// Channel to communicate on. Must be set to the same number on every tipjar. Use a random negeative integer
+// Channel to communicate on. Must be set to the same number on every tipjar. Use a random negative integer
 integer listenChannel = -832749;
 
 // Hovertext message - %%TOTALDONATED%% will be replaced with the total donated so far
-string hoverMessage = "Devils Donation Box\nAny donations are appreciated!\n$%%TOTALDONATED%% Donated so far.";
+string hoverMessage = "Donation Box\nAny donations are appreciated!\n$%%TOTALDONATED%% Donated so far.";
 
 // Color of the hovertext
 vector hoverColor = <1.0, 1.0, 1.0>;
@@ -14,7 +14,7 @@ string thankYouMessage = "Thank you, your donation is appreciated!";
 integer payField = 50;
 
 // Prices to show on pay buttons
-list prices = [100,250,500, 1000];
+list prices = [100, 250, 500, 1000];
 
 // DO NOT CHANGE BELOW THIS LINE //
 
